@@ -15,7 +15,7 @@ RUN apt-get install -y git
 RUN npm install -g yarn
 
 # nodemonをインストール
-RUN npm install -g nodemon
+# RUN npm install -g nodemon
 
 # 作業ディレクトリを設定
 WORKDIR /var/www/client
@@ -23,11 +23,12 @@ WORKDIR /var/www/client
 # ポートの公開
 EXPOSE 3000
 
-
-RUN yarn install
 COPY . .
 
+RUN yarn install
 # 環境変数の設定
-ENV NODE_ENV production
+ENV NODE_ENV development
 
+# アプリケーションの起動コマンド
+CMD ["npm", "run", "dev"]
 
