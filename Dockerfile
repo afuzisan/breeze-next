@@ -23,7 +23,7 @@ WORKDIR /var/www/client
 # ポートの公開
 EXPOSE 3000
 
-COPY . .
+# COPY . .
 
 RUN yarn install
 # 環境変数の設定
